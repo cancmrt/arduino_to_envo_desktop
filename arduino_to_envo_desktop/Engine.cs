@@ -68,6 +68,14 @@ namespace arduino_to_envo_desktop
                         }
                         eventParse(Int32.Parse(parsedMesage[1]),statmes);
                     }
+                    else if(parsedMesage[0] == "A")
+                    {
+                        eventParse(Int32.Parse(parsedMesage[1]), parsedMesage[2]);
+                    }
+                    else
+                    {
+                        eventParse(-1, comingMessage);
+                    }
                 }
                 catch
                 {

@@ -18,7 +18,9 @@ namespace arduino_to_envo_desktop
         private Image redImage;
         private Image greenImage;
         private Label[] analogLabel;
+        private TextBox[] analogTextBox;
         private Engine engineSerial;
+        private Device_Interface arduino;
         public Envo(string com,string device)
         {
             comPort = com;
@@ -26,16 +28,17 @@ namespace arduino_to_envo_desktop
             InitializeComponent();
             redImage = arduino_to_envo_desktop.Properties.Resources.red;
             greenImage = arduino_to_envo_desktop.Properties.Resources.green;
+            arduino = Device_Factory.getDevice(deviceName, comPort);
         }
 
         private void Envo_Load(object sender, EventArgs e)
         {
             engineSerial = new Engine(comPort);
             engineSerial.serialPortEvent += EngineSerial_serialPortEvent;
-            Device_Interface arduino = Device_Factory.getDevice(deviceName, comPort);
             device_img.Image = arduino.img;
             grImages = new PictureBox[arduino.digitalPins.Length];
             analogLabel = new Label[arduino.analogPins.Length];
+            analogTextBox = new TextBox[arduino.analogPins.Length];
             for(int i=0; i<arduino.digitalPins.Length; i++)
             {
                 grImages[i] = new PictureBox();
@@ -50,12 +53,23 @@ namespace arduino_to_envo_desktop
             for(int i=0; i<arduino.analogPins.Length;i++)
             {
                 analogLabel[i] = new Label();
+                analogTextBox[i] = new TextBox();
+
                 analogLabel[i].Name = "analogLabel_" + i.ToString();
+                analogTextBox[i].Name = "analogTextbox_" + i.ToString();
+
                 analogLabel[i].Location = new Point(arduino.positionOfAnalogTexts[0, i], arduino.positionOfAnalogTexts[1, i]);
+                analogTextBox[i].Location = new Point(arduino.positionOfAnalogTexts[0, i] + 20, arduino.positionOfAnalogTexts[1, i]);
+
                 analogLabel[i].Size = new Size(100, 15);
+                analogTextBox[i].Size = new Size(200, 15);
+
                 analogLabel[i].Text = "A" + i.ToString();
+
                 analogLabel[i].Visible = true;
+                analogTextBox[i].Visible = true;
                 this.Controls.Add(analogLabel[i]);
+                this.Controls.Add(analogTextBox[i]);
             }
 
 
@@ -65,13 +79,27 @@ namespace arduino_to_envo_desktop
 
         private void EngineSerial_serialPortEvent(object sender, ArgPins e)
         {
-            if (e.STATUS == "ON")
+            if(e.PIN == -1)
             {
-                grImages[e.PIN].Image = (Bitmap)(arduino_to_envo_desktop.Properties.Resources.green);
+                serialConsole.Text += e.STATUS + "\n";
             }
-            else if(e.STATUS == "OFF")
+            else if (e.PIN <= arduino.digitalPins.Length)
             {
-                grImages[e.PIN].Image = (Bitmap)(arduino_to_envo_desktop.Properties.Resources.red);
+                if (e.STATUS == "ON")
+                {
+                    arduino.digitalPins[e.PIN] = true;
+                    grImages[e.PIN].Image = (Bitmap)(arduino_to_envo_desktop.Properties.Resources.green);
+                }
+                else if (e.STATUS == "OFF")
+                {
+                    arduino.digitalPins[e.PIN] = false;
+                    grImages[e.PIN].Image = (Bitmap)(arduino_to_envo_desktop.Properties.Resources.red);
+                }
+            }
+            else if(e.PIN > arduino.analogPins.Length)
+            {
+                analogTextBox[arduino.digitalPins.Length - e.PIN].Text = e.STATUS;
+                arduino.analogPins[arduino.digitalPins.Length - e.PIN] = Int32.Parse(e.STATUS);
             }
             
         }
