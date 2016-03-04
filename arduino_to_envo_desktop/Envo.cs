@@ -61,8 +61,8 @@ namespace arduino_to_envo_desktop
                 analogLabel[i].Location = new Point(arduino.positionOfAnalogTexts[0, i], arduino.positionOfAnalogTexts[1, i]);
                 analogTextBox[i].Location = new Point(arduino.positionOfAnalogTexts[0, i] + 20, arduino.positionOfAnalogTexts[1, i]);
 
-                analogLabel[i].Size = new Size(100, 15);
-                analogTextBox[i].Size = new Size(200, 15);
+                analogLabel[i].Size = new Size(20, 15);
+                analogTextBox[i].Size = new Size(97, 15);
 
                 analogLabel[i].Text = "A" + i.ToString();
 
@@ -81,9 +81,9 @@ namespace arduino_to_envo_desktop
         {
             if(e.PIN == -1)
             {
-                serialConsole.Text += e.STATUS + "\n";
+                serialConsole.BeginInvoke(new MethodInvoker(() => serialConsole.Text += e.STATUS+"\n"));
             }
-            else if (e.PIN <= arduino.digitalPins.Length)
+            else if (e.PIN < arduino.digitalPins.Length)
             {
                 if (e.STATUS == "ON")
                 {
@@ -96,9 +96,10 @@ namespace arduino_to_envo_desktop
                     grImages[e.PIN].Image = (Bitmap)(arduino_to_envo_desktop.Properties.Resources.red);
                 }
             }
-            else if(e.PIN > arduino.analogPins.Length)
+            else if(e.PIN >= arduino.analogPins.Length)
             {
-                analogTextBox[arduino.digitalPins.Length - e.PIN].Text = e.STATUS;
+                analogTextBox[arduino.digitalPins.Length - e.PIN].BeginInvoke(new MethodInvoker(() => analogTextBox[arduino.digitalPins.Length - e.PIN].Text = e.STATUS));
+                //analogTextBox[arduino.digitalPins.Length - e.PIN].Text = e.STATUS;
                 arduino.analogPins[arduino.digitalPins.Length - e.PIN] = Int32.Parse(e.STATUS);
             }
             
