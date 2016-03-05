@@ -40,6 +40,7 @@ namespace arduino_to_envo_desktop
         private void BackPortListener_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             flagOfStart = false;
+            port.Close();
             throw new NotImplementedException();
         }
 
@@ -79,7 +80,7 @@ namespace arduino_to_envo_desktop
                 }
                 catch
                 {
-                    
+                    eventParse(-1, comingMessage);
                 }
             }
             throw new NotImplementedException();
@@ -92,6 +93,11 @@ namespace arduino_to_envo_desktop
                 serialPortEvent(this, ap);
             }
             
+        }
+        private void stopEngine()
+        {
+            flagOfStart = false;
+            port.Close();
         }
     }
     

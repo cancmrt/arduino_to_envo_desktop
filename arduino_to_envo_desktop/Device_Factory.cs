@@ -17,7 +17,7 @@ namespace arduino_to_envo_desktop
                 di.device_Com_Port = comPort;
                 return di;
             }
-            else if (deviceName == "Arduino Mega 2560")
+            else if (deviceName == "Arduino Mega 2560 R3")
             {
                 di = new Arduino_Mega();
                 di.device_Com_Port = comPort;

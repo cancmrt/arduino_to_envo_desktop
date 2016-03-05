@@ -63,6 +63,16 @@ namespace arduino_to_envo_desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1457185159_free_38 {
+            get {
+                object obj = ResourceManager.GetObject("1457185159_free-38", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2000px_USB_Icon_svg {
             get {
                 object obj = ResourceManager.GetObject("2000px-USB_Icon.svg", resourceCulture);

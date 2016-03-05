@@ -36,11 +36,12 @@
             this.arduino_imgs = new System.Windows.Forms.ImageList(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.list_coms = new System.Windows.Forms.ComboBox();
+            this.next_btn = new System.Windows.Forms.Button();
+            this.refresh_pic_btn = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.arduino_img = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.next_btn = new System.Windows.Forms.Button();
-            this.com_ports_checker = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.refresh_pic_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arduino_img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,7 +74,7 @@
             this.list_arduinos.Items.AddRange(new object[] {
             "Arduino Uno R3",
             "Arduino Mega 2560 R3"});
-            this.list_arduinos.Location = new System.Drawing.Point(20, 126);
+            this.list_arduinos.Location = new System.Drawing.Point(20, 124);
             this.list_arduinos.Name = "list_arduinos";
             this.list_arduinos.Size = new System.Drawing.Size(133, 21);
             this.list_arduinos.TabIndex = 3;
@@ -100,15 +101,37 @@
             // 
             this.list_coms.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.list_coms.FormattingEnabled = true;
-            this.list_coms.Location = new System.Drawing.Point(191, 126);
+            this.list_coms.Location = new System.Drawing.Point(191, 124);
             this.list_coms.Name = "list_coms";
             this.list_coms.Size = new System.Drawing.Size(133, 21);
             this.list_coms.TabIndex = 6;
+            this.list_coms.SelectedIndexChanged += new System.EventHandler(this.list_coms_SelectedIndexChanged);
+            // 
+            // next_btn
+            // 
+            this.next_btn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.next_btn.Location = new System.Drawing.Point(916, 328);
+            this.next_btn.Name = "next_btn";
+            this.next_btn.Size = new System.Drawing.Size(103, 42);
+            this.next_btn.TabIndex = 8;
+            this.next_btn.Text = "Next";
+            this.next_btn.UseVisualStyleBackColor = true;
+            this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
+            // 
+            // refresh_pic_btn
+            // 
+            this.refresh_pic_btn.Image = global::arduino_to_envo_desktop.Properties.Resources._1457185159_free_38;
+            this.refresh_pic_btn.Location = new System.Drawing.Point(338, 118);
+            this.refresh_pic_btn.Name = "refresh_pic_btn";
+            this.refresh_pic_btn.Size = new System.Drawing.Size(34, 32);
+            this.refresh_pic_btn.TabIndex = 9;
+            this.refresh_pic_btn.TabStop = false;
+            this.refresh_pic_btn.Click += new System.EventHandler(this.refresh_pic_btn_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::arduino_to_envo_desktop.Properties.Resources._2000px_USB_Icon_svg;
-            this.pictureBox3.Location = new System.Drawing.Point(384, 101);
+            this.pictureBox3.Location = new System.Drawing.Point(900, 83);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(124, 46);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,28 +156,13 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // next_btn
-            // 
-            this.next_btn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.next_btn.Location = new System.Drawing.Point(916, 328);
-            this.next_btn.Name = "next_btn";
-            this.next_btn.Size = new System.Drawing.Size(103, 42);
-            this.next_btn.TabIndex = 8;
-            this.next_btn.Text = "Next";
-            this.next_btn.UseVisualStyleBackColor = true;
-            this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
-            // 
-            // com_ports_checker
-            // 
-            this.com_ports_checker.Interval = 5000;
-            this.com_ports_checker.Tick += new System.EventHandler(this.com_ports_checker_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1031, 378);
+            this.Controls.Add(this.refresh_pic_btn);
             this.Controls.Add(this.next_btn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.list_coms);
@@ -167,6 +175,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.refresh_pic_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arduino_img)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -185,9 +194,9 @@
         private System.Windows.Forms.PictureBox arduino_img;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox list_coms;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button next_btn;
-        private System.Windows.Forms.Timer com_ports_checker;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox refresh_pic_btn;
     }
 }
 

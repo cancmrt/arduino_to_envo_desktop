@@ -22,7 +22,7 @@ namespace arduino_to_envo_desktop
         {
             device_Com_Port = "";
             name = "Arduino Mega 2560";
-            img = arduino_to_envo_desktop.Properties.Resources.arduino_mega_rev_3_bb;
+            img = Properties.Resources.arduino_mega_rev_3_bb;
             analogPins = new int[16];
             digitalPins = new bool[54];
             positionsOfDigitPinsImage = new int[54, 54];
@@ -66,7 +66,7 @@ namespace arduino_to_envo_desktop
                 point = point + 15;
             }
             int pointX = 50;
-            int pointY = 80;
+            int pointY = 90;
             //Analog textlerin pozisyonları
             for(int i = 1; i<=analogPins.Length; i++)
             {
@@ -74,12 +74,12 @@ namespace arduino_to_envo_desktop
                 positionOfAnalogTexts[1, i - 1] = pointY;
                 if (i % 3 == 0)
                 {
-                    pointX = pointX + 120;
-                    pointY = 80;
+                    pointX = pointX + 150;
+                    pointY = 90;
                 }
                 else
                 {
-                    pointY = pointY + 20;
+                    pointY = pointY + 30;
                 }
 
             }

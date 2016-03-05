@@ -43,7 +43,7 @@ namespace arduino_to_envo_desktop
                 point = point + 16;
             }
             int pointX = 50;
-            int pointY = 80;
+            int pointY = 90;
             //Analog textlerin pozisyonları
             for (int i = 1; i <= analogPins.Length; i++)
             {
@@ -51,12 +51,12 @@ namespace arduino_to_envo_desktop
                 positionOfAnalogTexts[1, i - 1] = pointY;
                 if (i % 3 == 0)
                 {
-                    pointX = pointX + 120;
-                    pointY = 80;
+                    pointX = pointX + 150;
+                    pointY = 90;
                 }
                 else
                 {
-                    pointY = pointY + 20;
+                    pointY = pointY + 30;
                 }
 
             }

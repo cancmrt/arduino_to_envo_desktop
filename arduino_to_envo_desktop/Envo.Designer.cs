@@ -30,21 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Envo));
-            this.device_img = new System.Windows.Forms.PictureBox();
             this.red_or_green_images = new System.Windows.Forms.ImageList(this.components);
             this.serialConsole = new System.Windows.Forms.RichTextBox();
             this.labelSerialConsole = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.device_img = new System.Windows.Forms.PictureBox();
+            this.labelAnalogValues = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_img)).BeginInit();
             this.SuspendLayout();
-            // 
-            // device_img
-            // 
-            this.device_img.Location = new System.Drawing.Point(12, 211);
-            this.device_img.Name = "device_img";
-            this.device_img.Size = new System.Drawing.Size(623, 354);
-            this.device_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.device_img.TabIndex = 0;
-            this.device_img.TabStop = false;
             // 
             // red_or_green_images
             // 
@@ -56,9 +50,9 @@
             // serialConsole
             // 
             this.serialConsole.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.serialConsole.Location = new System.Drawing.Point(665, 281);
+            this.serialConsole.Location = new System.Drawing.Point(665, 243);
             this.serialConsole.Name = "serialConsole";
-            this.serialConsole.Size = new System.Drawing.Size(687, 284);
+            this.serialConsole.Size = new System.Drawing.Size(687, 322);
             this.serialConsole.TabIndex = 1;
             this.serialConsole.Text = "";
             // 
@@ -66,11 +60,40 @@
             // 
             this.labelSerialConsole.AutoSize = true;
             this.labelSerialConsole.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelSerialConsole.Location = new System.Drawing.Point(668, 211);
+            this.labelSerialConsole.Location = new System.Drawing.Point(657, 195);
             this.labelSerialConsole.Name = "labelSerialConsole";
             this.labelSerialConsole.Size = new System.Drawing.Size(288, 45);
             this.labelSerialConsole.TabIndex = 2;
             this.labelSerialConsole.Text = "Serial Port Console";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::arduino_to_envo_desktop.Properties.Resources.maxresdefault;
+            this.pictureBox1.Location = new System.Drawing.Point(1214, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // device_img
+            // 
+            this.device_img.Location = new System.Drawing.Point(12, 211);
+            this.device_img.Name = "device_img";
+            this.device_img.Size = new System.Drawing.Size(623, 354);
+            this.device_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.device_img.TabIndex = 0;
+            this.device_img.TabStop = false;
+            // 
+            // labelAnalogValues
+            // 
+            this.labelAnalogValues.AutoSize = true;
+            this.labelAnalogValues.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelAnalogValues.Location = new System.Drawing.Point(46, 28);
+            this.labelAnalogValues.Name = "labelAnalogValues";
+            this.labelAnalogValues.Size = new System.Drawing.Size(221, 45);
+            this.labelAnalogValues.TabIndex = 4;
+            this.labelAnalogValues.Text = "Analog Values";
             // 
             // Envo
             // 
@@ -78,12 +101,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1364, 788);
+            this.Controls.Add(this.labelAnalogValues);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelSerialConsole);
             this.Controls.Add(this.serialConsole);
             this.Controls.Add(this.device_img);
             this.Name = "Envo";
             this.Text = "Envo";
             this.Load += new System.EventHandler(this.Envo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_img)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,5 +122,7 @@
         private System.Windows.Forms.ImageList red_or_green_images;
         private System.Windows.Forms.RichTextBox serialConsole;
         private System.Windows.Forms.Label labelSerialConsole;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelAnalogValues;
     }
 }
