@@ -69,6 +69,7 @@
             // 
             // list_arduinos
             // 
+            this.list_arduinos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.list_arduinos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.list_arduinos.FormattingEnabled = true;
             this.list_arduinos.Items.AddRange(new object[] {
@@ -99,6 +100,7 @@
             // 
             // list_coms
             // 
+            this.list_coms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.list_coms.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.list_coms.FormattingEnabled = true;
             this.list_coms.Location = new System.Drawing.Point(191, 124);

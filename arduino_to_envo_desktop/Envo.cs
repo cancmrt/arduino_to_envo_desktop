@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace arduino_to_envo_desktop
@@ -104,6 +98,18 @@ namespace arduino_to_envo_desktop
             serialConsole.BeginInvoke(new MethodInvoker(() => serialConsole.SelectionStart = serialConsole.Text.Length));
             serialConsole.BeginInvoke(new MethodInvoker(() => serialConsole.ScrollToCaret()));
 
+        }
+
+        private void restart_img_btn_Click(object sender, EventArgs e)
+        {
+            engineSerial.stopEngine();
+            engineSerial = new Engine(comPort);
+            engineSerial.serialPortEvent += EngineSerial_serialPortEvent;
+        }
+
+        private void Envo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

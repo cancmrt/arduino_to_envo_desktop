@@ -33,9 +33,11 @@
             this.red_or_green_images = new System.Windows.Forms.ImageList(this.components);
             this.serialConsole = new System.Windows.Forms.RichTextBox();
             this.labelSerialConsole = new System.Windows.Forms.Label();
+            this.labelAnalogValues = new System.Windows.Forms.Label();
+            this.restart_img_btn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.device_img = new System.Windows.Forms.PictureBox();
-            this.labelAnalogValues = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.restart_img_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_img)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +68,27 @@
             this.labelSerialConsole.TabIndex = 2;
             this.labelSerialConsole.Text = "Serial Port Console";
             // 
+            // labelAnalogValues
+            // 
+            this.labelAnalogValues.AutoSize = true;
+            this.labelAnalogValues.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelAnalogValues.Location = new System.Drawing.Point(46, 28);
+            this.labelAnalogValues.Name = "labelAnalogValues";
+            this.labelAnalogValues.Size = new System.Drawing.Size(221, 45);
+            this.labelAnalogValues.TabIndex = 4;
+            this.labelAnalogValues.Text = "Analog Values";
+            // 
+            // restart_img_btn
+            // 
+            this.restart_img_btn.Image = global::arduino_to_envo_desktop.Properties.Resources._1457279205_Power___Restart;
+            this.restart_img_btn.Location = new System.Drawing.Point(1256, 89);
+            this.restart_img_btn.Name = "restart_img_btn";
+            this.restart_img_btn.Size = new System.Drawing.Size(56, 50);
+            this.restart_img_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.restart_img_btn.TabIndex = 5;
+            this.restart_img_btn.TabStop = false;
+            this.restart_img_btn.Click += new System.EventHandler(this.restart_img_btn_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::arduino_to_envo_desktop.Properties.Resources.maxresdefault;
@@ -85,22 +108,13 @@
             this.device_img.TabIndex = 0;
             this.device_img.TabStop = false;
             // 
-            // labelAnalogValues
-            // 
-            this.labelAnalogValues.AutoSize = true;
-            this.labelAnalogValues.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelAnalogValues.Location = new System.Drawing.Point(46, 28);
-            this.labelAnalogValues.Name = "labelAnalogValues";
-            this.labelAnalogValues.Size = new System.Drawing.Size(221, 45);
-            this.labelAnalogValues.TabIndex = 4;
-            this.labelAnalogValues.Text = "Analog Values";
-            // 
             // Envo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1364, 788);
+            this.Controls.Add(this.restart_img_btn);
             this.Controls.Add(this.labelAnalogValues);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelSerialConsole);
@@ -108,7 +122,9 @@
             this.Controls.Add(this.device_img);
             this.Name = "Envo";
             this.Text = "Envo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Envo_FormClosed);
             this.Load += new System.EventHandler(this.Envo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.restart_img_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.device_img)).EndInit();
             this.ResumeLayout(false);
@@ -124,5 +140,6 @@
         private System.Windows.Forms.Label labelSerialConsole;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelAnalogValues;
+        private System.Windows.Forms.PictureBox restart_img_btn;
     }
 }

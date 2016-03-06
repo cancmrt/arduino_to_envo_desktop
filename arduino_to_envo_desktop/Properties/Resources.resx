@@ -121,6 +121,9 @@
   <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1457185159_free-38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1457185159_free-38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arduino_mega_rev_3_bb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arduino_mega_rev_3_bb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="maxresdefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maxresdefault.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1457185159_free-38" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1457185159_free-38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1457279205_Power_-_Restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1457279205_Power_-_Restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

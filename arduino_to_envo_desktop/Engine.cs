@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace arduino_to_envo_desktop
 {
@@ -30,6 +26,8 @@ namespace arduino_to_envo_desktop
         public Engine(string com)
         {
             port = new SerialPort(com, 9600);
+            port.DtrEnable = true;
+            port.Open();
             BackgroundWorker backPortListener = new BackgroundWorker();
             backPortListener.DoWork += BackPortListener_DoWork;
             backPortListener.RunWorkerCompleted += BackPortListener_RunWorkerCompleted;
@@ -41,12 +39,10 @@ namespace arduino_to_envo_desktop
         {
             flagOfStart = false;
             port.Close();
-            throw new NotImplementedException();
         }
 
         private void BackPortListener_DoWork(object sender, DoWorkEventArgs e)
         {
-            port.Open();
             while(flagOfStart)
             {
                 try
@@ -83,7 +79,7 @@ namespace arduino_to_envo_desktop
                     eventParse(-1, comingMessage);
                 }
             }
-            throw new NotImplementedException();
+            
         }
         private void eventParse(int pin,string status)
         {
@@ -94,7 +90,7 @@ namespace arduino_to_envo_desktop
             }
             
         }
-        private void stopEngine()
+        public void stopEngine()
         {
             flagOfStart = false;
             port.Close();
